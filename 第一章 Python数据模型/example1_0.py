@@ -1,6 +1,6 @@
 import sys
 
-sys.api_version
+print(sys.api_version)
 
 print(sys.version)
 print(sys.executable)
