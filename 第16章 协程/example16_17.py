@@ -33,9 +33,9 @@ def main(data):
         next(group)
         for value in values:
             group.send(value)
-        # group.send(No 要！
+        group.send(None)   # 重要！
 
-    print(results)  # 如果要调试，去掉注释
+    # print(results)  # 如果要调试，去掉注释
     report(results)
 
 
