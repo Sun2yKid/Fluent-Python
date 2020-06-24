@@ -1,6 +1,6 @@
 import keyword
 from collections import abc
-
+from example19_2 import load
 
 class FrozenJSON:
     """
@@ -19,6 +19,7 @@ class FrozenJSON:
 
     def __getattr__(self, name):
         if hasattr(self.__data, name):
+            print('in hasattr', name)
             return getattr(self.__data, name)
         else:
             return FrozenJSON.build(self.__data[name])
@@ -31,3 +32,12 @@ class FrozenJSON:
             return [cls.build(item) for item in obj]
         else:
             return obj
+
+print(__name__)
+
+raw_feed = load()
+feed = FrozenJSON(raw_feed)
+print(len(feed.Schedule.speakers))
+print(sorted(feed.Schedule.keys()))
+for key, value in sorted(feed.Schedule.items()):
+    print('{:3} {}'.format(len(value), key))
