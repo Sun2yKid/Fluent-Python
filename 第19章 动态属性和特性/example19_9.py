@@ -19,6 +19,7 @@ def load_db(db):
     warnings.warn('loading ' + DB_NAME)
     for collection, rec_list in raw_data['Schedule'].items():
         record_type = collection[:-1]
+        print('record_type', record_type)
         for record in rec_list:
             key = '{}.{}'.format(record_type, record['serial'])
             record['serial'] = key
